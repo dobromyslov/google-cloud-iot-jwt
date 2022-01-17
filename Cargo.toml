@@ -1,6 +1,6 @@
 [package]
 name = "google-cloud-iot-jwt"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 description = "Rust implementation of the Google Cloud IOT Core JWT for embedded no_std heapless (no alloc) devices."
 keywords = ["google-cloud", "iot", "JWT", "no_std", "heapless"]

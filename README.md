@@ -1,5 +1,6 @@
 # google-cloud-iot-jwt
-Rust implementation of the [Google Cloud IOT Core JWT](https://cloud.google.com/iot/docs/how-tos/credentials/jwts) 
+[![crates.io](https://img.shields.io/crates/v/google-cloud-iot-jwt.svg)](https://crates.io/crates/google-cloud-iot-jwt)
+> Rust implementation of the [Google Cloud IOT Core JWT](https://cloud.google.com/iot/docs/how-tos/credentials/jwts) 
 for embedded no_std heapless (no alloc) devices.
 
 ## Features
@@ -13,7 +14,7 @@ All calculations are preformed using stack fixed-size variables. Special thanks 
 [heapless](https://github.com/japaric/heapless) and [ufmt](https://github.com/japaric/ufmt) contributors.
 * [RustCrypto](https://github.com/RustCrypto) - the library uses high quality cryptographic algorithms written in pure 
 Rust.
-* Tested in the real production environment.
+* Low flash memory footprint - takes only 49.7 KB. See details below.
 
 ## Install
 
@@ -22,7 +23,7 @@ https://crates.io/crates/google-cloud-iot-jwt
 ```toml
 # Cargo.toml
 [dependencies]
-google-cloud-iot-jwt = "0.1.0"
+google-cloud-iot-jwt = "0.1.1"
 ```
 
 ## Usage
@@ -120,6 +121,34 @@ lto = true
 panic = "abort"
 debug = true
 ```
+
+
+## Flash memory footprint
+Tested in a firmware for [STM32F3Discovery](https://docs.rust-embedded.org/discovery/f3discovery/index.html):
+* Build target `thumbv7em-none-eabihf`
+* Release profile
+    * opt-level = "z"
+    * lto = true
+    * panic = "abort"
+    * debug = true
+
+Compilation with google_cloud_iot_jwt::create_google_jwt_es256;
+```
+section               size        addr
+.text                46132   0x8000194
+.rodata               8580   0x800b5c8
+Total = 54712 bytes
+```
+
+Compilation without google_cloud_iot_jwt::create_google_jwt_es256;
+```
+section               size        addr
+.text                 3388   0x8000194
+.rodata                432   0x8000ed0
+Total = 3820 bytes
+```
+
+Flash memory footprint = 54712 - 3820 = 50892 bytes (49.7 KB)
 
 ## License
 
