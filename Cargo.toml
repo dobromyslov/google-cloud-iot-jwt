@@ -3,10 +3,7 @@ name = "google-cloud-iot-jwt"
 version = "0.1.0"
 edition = "2021"
 description = "Rust implementation of the Google Cloud IOT Core JWT for embedded no_std heapless (no alloc) devices."
-keywords = [
-    "google", "cloud", "iot", "JWS", "no_std", "heapless", "no_alloc", "embedded",
-    "JWS", "ES256", "sec1", "PEM", "signature", "ECDSA", "P256", "prime256v1"
-]
+keywords = ["google-cloud", "iot", "JWT", "no_std", "heapless"]
 authors = ["Viacheslav Dobromyslov <viacheslav@dobromyslov.ru>"]
 repository = "https://github.com/dobromyslov/google-cloud-iot-jwt"
 homepage = "https://github.com/dobromyslov/google-cloud-iot-jwt#readme"
