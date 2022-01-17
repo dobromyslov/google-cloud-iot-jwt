@@ -17,6 +17,8 @@ Rust.
 
 ## Install
 
+https://crates.io/crates/google-cloud-iot-jwt
+
 ```toml
 # Cargo.toml
 [dependencies]
