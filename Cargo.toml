@@ -1,0 +1,24 @@
+[package]
+name = "google-cloud-iot-jwt"
+version = "0.1.0"
+edition = "2021"
+description = "Rust implementation of the Google Cloud IOT Core JWT for embedded no_std heapless (no alloc) devices."
+keywords = [
+    "google", "cloud", "iot", "JWS", "no_std", "heapless", "no_alloc", "embedded",
+    "JWS", "ES256", "sec1", "PEM", "signature", "ECDSA", "P256", "prime256v1"
+]
+authors = ["Viacheslav Dobromyslov <viacheslav@dobromyslov.ru>"]
+repository = "https://github.com/dobromyslov/google-cloud-iot-jwt"
+homepage = "https://github.com/dobromyslov/google-cloud-iot-jwt#readme"
+readme = "README.md"
+license-file = "license.txt"
+
+[dev-dependencies]
+hex-literal = "0.3.4"
+
+[dependencies]
+heapless = { version = "0.7.9", features = ["ufmt-impl"] }
+ufmt = "0.1.0"
+pem-rfc7468 = "0.3.1"
+base64ct = "1" # MUST MATCH VERSION FROM THE pem-rfc7468 CRATE TO AVOID DUPLICATION
+p256 = { version = "0.10.0", default-features = false, features = ["ecdsa"] }
